@@ -22,6 +22,7 @@ const keys: (keyof IaCTestFlags)[] = [
   'quiet',
   'scan',
   'legacy',
+  'report',
 
   // PolicyOptions
   'ignore-policy',
@@ -44,7 +45,7 @@ export class FlagError extends CustomError {
     const flag = getFlagName(key);
     let msg;
     if (featureFlag) {
-      msg = `Flag "${flag}" is only supported if feature flag '${featureFlag}' is enabled. The feature flag can be enabled via Snyk Preview if you are on the Enterprise Plan`;
+      msg = `Flag "${flag}" is only supported if feature flag "${featureFlag}" is enabled. To enable it, please contact Snyk support.`;
     } else {
       msg = `Unsupported flag "${flag}" provided. Run snyk iac test --help for supported flags`;
     }
@@ -132,4 +133,8 @@ function assertTerraformPlanModes(scanModeArgValue: string) {
   ) {
     throw new FlagValueError('scan', scanModeArgValue);
   }
+}
+
+export function isIacShareResultsOptions(options) {
+  return options.iac && options.report && !options.legacy;
 }

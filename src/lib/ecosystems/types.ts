@@ -5,6 +5,8 @@ import { Options, ProjectAttributes, Tag } from '../types';
 
 export type Ecosystem = 'cpp' | 'docker' | 'code';
 
+export type FindingType = 'iacIssues';
+
 export interface PluginResponse {
   scanResults: ScanResult[];
 }
@@ -21,9 +23,10 @@ export interface ContainerTarget {
 export interface ScanResult {
   identity: Identity;
   facts: Facts[];
+  findings?: Finding[];
   name?: string;
   policy?: string;
-  target?: GitTarget | ContainerTarget;
+  target?: GitTarget | ContainerTarget | {};
   analytics?: Analytics[];
 }
 
@@ -40,6 +43,11 @@ export interface Identity {
 
 export interface Facts {
   type: string;
+  data: any;
+}
+
+export interface Finding {
+  type: FindingType;
   data: any;
 }
 
