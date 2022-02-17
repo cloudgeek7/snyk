@@ -45,6 +45,9 @@ export const codePlugin: EcosystemPlugin = {
       }
       const numOfIssues = sarifTypedResult!.runs?.[0].results?.length || 0;
       analytics.add('sast-issues-found', numOfIssues);
+      if (!options.org && sastSettings.org) {
+        options.org = sastSettings.org;
+      }
       const meta = getMeta(options, path);
       const prefix = getPrefix(path);
       let readableResult = getCodeDisplayedOutput(
