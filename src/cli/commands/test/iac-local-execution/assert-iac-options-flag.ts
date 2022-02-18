@@ -107,15 +107,19 @@ export function assertIaCOptionsFlags(argv: string[]) {
   const parsed = args(argv);
   for (const key of Object.keys(parsed.options)) {
     // The _ property is a special case that contains non
+    // The _ and rawArgv properties are special cases that contain non
     // flag strings passed to the command line (usually files)
     // and `iac` is the command provided.
     if (key !== '_' && key !== 'iac' && !allowed.has(key)) {
-      throw new FlagError(key, '');
+      if (
+        key !== '_' &&
+        key !== 'iac' &&
+        key !== 'rawArgv' &&
+        !allowed.has(key)
+      ) {
+        throw new FlagError(key, '');
+      }
     }
-  }
-
-  if (parsed.options.scan) {
-    assertTerraformPlanModes(parsed.options.scan as string);
   }
 }
 

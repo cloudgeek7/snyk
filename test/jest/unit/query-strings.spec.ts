@@ -41,6 +41,7 @@ describe('getQueryParamsAsString', () => {
         ...args,
         _: [],
         _doubleDashArgs: [],
+        rawArgv: [],
       },
     ];
   };
