@@ -1,4 +1,4 @@
-FROM node:gallium-buster-slim
+FROM node:16.14.2-slim
 
 MAINTAINER Snyk Ltd
 
