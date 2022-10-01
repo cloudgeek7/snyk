@@ -115,7 +115,7 @@
     "snyk-config": "4.0.0",
     "snyk-cpp-plugin": "2.16.3",
     "snyk-docker-plugin": "^4.34.5",
-    "snyk-go-plugin": "1.18.0",
+    "snyk-go-plugin": "1.19.1",
     "snyk-gradle-plugin": "3.17.0",
     "snyk-module": "3.1.0",
     "snyk-mvn-plugin": "2.26.3",
