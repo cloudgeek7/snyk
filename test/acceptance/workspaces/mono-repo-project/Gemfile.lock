@@ -71,10 +71,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack (>= 6.1.7.1)
+  actionpack (>= 7.0.4.2)
   haml (>= 5.0.0)
   httparty (>= 0.21.0)
-  sinatra (>= 2.2.3)
+  sinatra (>= 3.0.5)
 
 BUNDLED WITH
    1.17.3
