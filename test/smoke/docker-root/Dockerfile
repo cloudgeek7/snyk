@@ -1,4 +1,4 @@
-FROM node:14.21.2
+FROM node:19.6.0-bullseye-slim
 
 COPY ./smoke/ /snyk/smoke/
 COPY ./fixtures/ /snyk/fixtures/
