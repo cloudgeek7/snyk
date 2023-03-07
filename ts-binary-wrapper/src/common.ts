@@ -209,7 +209,9 @@ export async function downloadExecutable(
       resolve(exitCode);
     };
 
-    console.debug("Downloading from '" + downloadUrl + "' to '" + filename);
+    console.error(
+      "Downloading from '" + downloadUrl + "' to '" + filename + "'",
+    );
 
     const req = https.request(options, (res) => {
       const shasum = createHash('sha256');
